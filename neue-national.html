@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Die Neue</title>
+</head>
+<style>
+  html {
+    font-size: 16px;
+    line-height: 1;
+    
+  }
+  body {
+    font-family: Arial, Helvetica Neue, Helvetica, Arial, sans-serif;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+  }
+  p {
+    font-size: 0.75rem;
+  }
+  h1 {
+    font-size: 8rem;
+    font-weight: normal;
+    line-height: 0.8;
+  }
+  h2 {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+
+  .grid {
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: black;
+    display: grid;
+    margin: 0;
+    grid-template-columns: 0.25fr repeat(3, 1fr) 0.25fr;
+    grid-template-rows: repeat(6, minmax(min-content, max-content));
+    grid-gap: 4px; 
+    grid-template-areas: 
+      "EMPTY-1 EMPTY-1 DATE DATE DATE" 
+      "EMPTY-1 EMPTY-1 DATE DATE DATE" 
+      "EMPTY-1 EMPTY-1 EMPTY-2 EMPTY-2 EMPTY-2"
+      "HEADER1 HEADER1 HEADER1 HEADER1 EMPTY-3"
+      "HEADER1 HEADER1 HEADER1 HEADER1 EMPTY-3"
+      "HEADER2 HEADER2 HEADER2 HEADER2 HEADER2";
+  }
+  .grid-cell {
+    background-color: rgb(236, 224, 103);
+    padding: 8px;
+  }
+  .empty-1 {
+    grid-area: EMPTY-1;
+  }
+  .empty-2 {
+    grid-area: EMPTY-2;
+  }
+  .empty-3 {
+    grid-area: EMPTY-3;
+  }
+  .date {
+    grid-area: DATE;
+    font-size: 3.5rem;
+    /* line-height:1; */
+    margin: 0;
+  }
+  .header-1 {
+    grid-area: HEADER1;
+    margin: 0;
+  }
+  .header-2 {
+    grid-area: HEADER2;
+    display: grid;
+    grid-gap: 10px;
+  }
+  .footer {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-around;
+  }
+
+  /* Each grid call has small or large paddding */
+</style>
+<body>
+    <section class="grid">
+      <span class="grid-cell empty-1"></span>
+      <p class="grid-cell date">ab <br/> 22.8.</p>
+      <span class="grid-cell empty-2"><p class="grid-cell date"><br/></p></span>
+      <h1 class="grid-cell header-1">Die<br/> Neue.</h1>
+      <span class="grid-cell empty-3"></span>
+      <section class="grid-cell header-2">
+        <h2 style="text-align: center; letter-spacing: 2px; margin: 0;">Neue Nationalgalerie</h2>
+        <div class="footer">
+          <p><strong>Nationalgalerie</strong><br/>Staatliche Museen zu Berlin</p>
+          <!-- turn this into an address -->
+          <p>Neue Nationalgalerie<br/>Potsdamer Str. 50, 10785 Berlin<br/>www.smb.museum</p>
+        </div>
+      </section>
+    </section>
+</body>
+</html>
+
+<!-- Articles that helped me with this -->
+<!-- https://stackoverflow.com/questions/49554727/border-inside-grid-layout -->
+<!-- https://stackoverflow.com/questions/48451764/how-to-set-base-size-for-rem -->
